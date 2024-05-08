@@ -19,6 +19,7 @@ To do this, the following changes have been made to the original itextsharp 4.1.
  - PdfContentByte.cs: commented the Tranform method, because of the parameter that references System.Drawing.Drawing2D.Matrix
  - FontFactoryImp.cs: changed the paths to scan for fonts, using an ANDROID compile constant.
  - Image.cs: commented several overloads to the static GetInstance method, because they require System.Drawing.Bitmap and System.Drawing.Image.
+ - PdfDocument.cs: changed the code to determine the underline position of text.
 
 
 ##Links

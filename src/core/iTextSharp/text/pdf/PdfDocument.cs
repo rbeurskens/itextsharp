@@ -1417,7 +1417,8 @@ namespace iTextSharp.text.pdf {
                                     graphics.SetColorStroke(scolor);
                                 float fsize = chunk.Font.Size;
                                 graphics.SetLineWidth(ps[0] + fsize * ps[1]);
-                                float shift = ps[2] + fsize * ps[3];
+                                //float shift = ps[2] + fsize * ps[3]; // RLSN 6-5-2024: Calculate the underline shift by using the font descriptor UNDERLINE_POSITION. This looks much better!
+                                float shift = chunk.Font.Font.GetFontDescriptor(BaseFont.UNDERLINE_POSITION, fsize);
                                 int cap2 = (int)ps[4];
                                 if (cap2 != 0)
                                     graphics.SetLineCap(cap2);
