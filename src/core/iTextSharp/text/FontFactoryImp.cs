@@ -613,6 +613,7 @@ namespace iTextSharp.text {
         */    
         public virtual int RegisterDirectories() {
             int count = 0;
+#if !ANDROID
             count += RegisterDirectory("c:/windows/fonts");
             count += RegisterDirectory("c:/winnt/fonts");
             count += RegisterDirectory("d:/windows/fonts");
@@ -624,6 +625,9 @@ namespace iTextSharp.text {
             count += RegisterDirectory("/usr/X11R6/lib/X11/fonts", true);
             count += RegisterDirectory("/Library/Fonts");
             count += RegisterDirectory("/System/Library/Fonts");
+#else
+            count += RegisterDirectory("/system/fonts"); //ANDROID
+#endif
             return count;
         }
 
